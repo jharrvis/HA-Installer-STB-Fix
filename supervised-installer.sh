@@ -7,13 +7,13 @@ function info { echo -e "\e[32m[info] $*\e[39m"; }
 function warn  { echo -e "\e[33m[warn] $*\e[39m"; }
 function error { echo -e "\e[31m[error] $*\e[39m"; exit 1; }
 
-info ""
-info "This script is taken from the official"
-info ""
-info "Home Assistant Supervised script available at"
-info ""
-info "https://github.com/home-assistant/supervised-installer"
-info ""
+warn ""
+warn "If you want more control over your own system, run"
+warn "Home Assistant as a VM or run Home Assistant Core"
+warn "via a Docker container."
+warn ""
+warn "If you want to abort, hit ctrl+c within 10 seconds..."
+warn ""
 
 sleep 10
 
@@ -181,7 +181,7 @@ case $ARCH in
     ;;
 esac
 
-if [[ ! "${MACHINE}" =~ ^(intel-nuc|odroid-c2|odroid-n2|odroid-xu|qemuarm|qemuarm-64|qemux86|qemux86-64|raspberrypi|raspberrypi2|raspberrypi3|raspberrypi4|raspberrypi3-64|raspberrypi4-64|tinker)$ ]]; then
+if [[ ! "${MACHINE}" =~ ^(generic-x86-64|odroid-c2|odroid-n2|odroid-xu|qemuarm|qemuarm-64|qemux86|qemux86-64|raspberrypi|raspberrypi2|raspberrypi3|raspberrypi4|raspberrypi3-64|raspberrypi4-64|tinker|khadas-vim3)$ ]]; then
     error "Unknown machine type ${MACHINE}!"
 fi
 
